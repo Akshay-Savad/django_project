@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>ADD JOB</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login\HR.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 heading">
+          <h1>JOB PORTAL</h1>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="horizontal-line"></div>
+      <div class="container row">
+        <div class="col-sm-3"></div>
+        <p class="col-sm-6 info">
+          Add your job details here. This details will seen to applicant on
+          there portal
+        </p>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="container">
+        <form action="add_job" method="POST">
+          {% csrf_token %}
+          <div class="row input">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">Your Company Name:</div>
+            <div class="col-sm-3">
+              <input class="border1" type="text" name="company" />
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row input">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">Enter Job Description:</div>
+            <div class="col-sm-3">
+              <input class="border1" type="text" name="job_des" />
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row input">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">Enter Location:</div>
+            <div class="col-sm-3">
+              <input class="border1" type="text" name="location" />
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row input">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">Your Duration:</div>
+            <div class="col-sm-3">
+              <input class="border1" type="text" name="duration" />
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row input">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">Enter Salary:</div>
+            <div class="col-sm-3">
+              <input class="border1" type="text" name="salary" />
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="sub-btn">
+            <input type="submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

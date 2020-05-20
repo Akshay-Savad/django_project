@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'login\HR.css' %}" />
+    <title>HR PAGE</title>
+    <style>
+      .marginAll {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body class="main">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 heading">
+          <h1>JOB PORTAL</h1>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="horizontal-line"></div>
+      <div class="container row">
+        <div class="col-sm-3"></div>
+        <p class="col-sm-6 info">
+          Here is the details of the Resume that uploaded By the Applicant on
+          job portal
+        </p>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="container row">
+        <div class="col-4"></div>
+        <div class="col-6">
+          <p class="font-weight-normal">
+            Here You can see Jobs uploaded by You
+            <a
+              href="uploadedJob"
+              style="margin-left: 5%; text-decoration: none;"
+            >
+              <svg
+                class="bi bi-briefcase-fill"
+                width="2em"
+                height="2em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M0 12.5A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5V6.85L8.129 8.947a.5.5 0 01-.258 0L0 6.85v5.65z"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 4.5A1.5 1.5 0 011.5 3h13A1.5 1.5 0 0116 4.5v1.384l-7.614 2.03a1.5 1.5 0 01-.772 0L0 5.884V4.5zm5-2A1.5 1.5 0 016.5 1h3A1.5 1.5 0 0111 2.5V3h-1v-.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5V3H5v-.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </p>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      {% for x in des %}
+      <div class="row marginAll">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <div class="content overflow-auto">
+            <h2 id="tag">Name : {{ x.applicant_name }}</h2>
+            <h3 id="tag">Domain : {{ x.domain }}</h3>
+            <h3 id="tag">Skills Have : {{ x.skill }}</h3>
+            <h3 id="tag">Experience : {{ x.experience }}</h3>
+            <h3 id="tag">Education : {{ x.education }}</h3>
+            <h3 id="tag">email : {{ x.email }}</h3>
+          </div>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      {% endfor %}
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6 last-container">
+          <h4>Want to add your Job</h4>
+          <a class="btn btn-primary" href="add_job" role="button">
+            click here
+          </a>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+    </div>
+    {% for message in messages %}
+    <script>
+      alert("{{ message }}");
+    </script>
+    {% endfor %}
+  </body>
+</html>

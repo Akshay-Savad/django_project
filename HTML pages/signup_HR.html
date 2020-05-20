@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compony Sign Page</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'signup/compony.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="Compony">
+      <form action="signup_HR" method="POST">
+        {% csrf_token %}
+        <h1>Sign Up</h1>
+        <div>
+          <label>Compony Name</label>
+          <input type="text" name="Compony name" required class="input1" />
+        </div>
+        <div>
+          <label>Address</label>
+          <input type="text" name="Address" required class="input2" />
+        </div>
+        <div>
+          <label>Email Id</label>
+          <input
+            type="Email"
+            name="Eid"
+            required
+            class="input3"
+            id="email"
+            onchange="ValidateEmail()"
+          />
+        </div>
+        <div>
+          <label>Username</label>
+          <input type="text" name="username" required class="input4" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="Password" name="password" required class="input4" />
+        </div>
+        <button class="special btn btn-primary">SUBMIT</button>
+      </form>
+      {% for message in messages %}
+      <script>
+        alert(" {{ message }}");
+      </script>
+      {% endfor %}
+      <script>
+        function ValidateEmail() {
+          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          inputText = document.getElementById("email");
+          if (inputText.value.match(mailformat)) {
+            document.getElementById("email").focus();
+            return true;
+          } else {
+            alert("You have entered an invalid email address!");
+            document.getElementById("email").focus();
+            return false;
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

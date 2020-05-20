@@ -1,0 +1,55 @@
+.horizontal-line{
+    border-bottom: 5px solid green;
+    width: 60%;
+    margin: auto;
+    align-content: center;
+}
+
+.heading{
+    text-align: center;
+}
+
+.info{
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+h2#tag{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#tag{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.content{
+    box-shadow: 15px 15px 15px #dde1e7,  -15px -15px 15px #dde1e7;
+    border-radius: 5%;
+    margin: auto;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.last-container{
+    margin-top: 10px;
+}
+
+.border1{
+    border: 2px solid black;
+}
+
+.input{
+    margin: 10px;
+}
+
+.sub-btn{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: 10px;
+}

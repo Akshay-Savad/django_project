@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Job Uploaded By Company</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'login\HR.css' %}" />
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        border: 1px solid black;
+        background-color: #dae0e2;
+        margin-left: 5%;
+        margin-top: 2%;
+      "
+    >
+      <h3 style="text-align: center; margin: 2%;">
+        Jobs Uploaded By You are is listed here
+      </h3>
+    </div>
+    {% for x in job_list %}
+    <div class="row" style="margin-top: 2%;">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="content">
+          <h2 id="tag">Job Description : {{ x.job_des }}</h2>
+          <h3 id="tag">Name Of Company : {{ x.company_name }}</h3>
+          <h3 id="tag">Location : {{ x.location }}</h3>
+          <h3 id="tag">Duration : {{ x.duration }}</h3>
+          <h3 id="tag">Salary : {{ x.salary }}</h3>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            style="margin: 2px;"
+          >
+            <a
+              href="{% url 'specific_request' x.id %}"
+              style="text-decoration: none;"
+              >Delete Job
+            </a>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    {% endfor %}
+  </body>
+</html>

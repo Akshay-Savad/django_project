@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> Login Page </title>
+      <link rel="stylesheet" type="text/css" href="{% static 'login\design.css' %}">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div>
+         <div class="login-box">
+            <h1>Login</h1>
+            <form action="login" method="POST">
+               <div class="textbox">
+                  {% csrf_token %}
+                  <span class="glyphicon glyphicon-user"><input type="text" name="username" placeholder="Username"></span>
+               </div>
+               <div class="textbox" aria-hidden="true">
+                  <span class="glyphicon glyphicon-lock"><input type="Password" name="password" placeholder="Password"></span>
+               </div>
+
+               <select name="job_description" id="special" class="btn btn-danger" method="POST">
+                  {% for x in domain %}
+                  <option value="{{ x }}"> {{ x }}</option>
+                  {% endfor %}
+               </select>
+               
+               <input class="btn btn-info" type="submit" name="Submit" value="Log In">
+            </form>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign UP If New <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu">
+                  <li><a href="signup_HR">FOR COMPONY</a></li>
+                  <li><a href="signup_applicant">FOR APPLICANT </a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      {% for message in messages %}  
+      <script>
+         alert( '{{ message }}' ); 
+      </script>
+      {% endfor %}
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </body>
+</html>

@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Applicant Sign UP</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'signup/applicant.css' %}"
+    />
+  </head>
+  <body>
+    <div class="applicant">
+      <form action="signup_applicant" method="POST">
+        {% csrf_token %}
+        <h1>Sign Up</h1>
+        <div>
+          <label>First Name</label>
+          <input
+            type="text"
+            name="First Name"
+            placeholder="Your Name"
+            required
+            class="input"
+          />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="Last Name"
+            placeholder="Last Name"
+            required
+            class="input"
+          />
+        </div>
+        <div>
+          <label>Age</label>
+          <input type="text" name="Age" required class="input2" />
+        </div>
+        <div>
+          <label>Qualification</label>
+          <input type="text" name="Qualification" required class="input3" />
+        </div>
+        <div>
+          <label>Phone Number</label>
+          <input type="text" name="Phone no" required class="input4" />
+        </div>
+        <div>
+          <label>Enail id</label>
+          <input
+            type="Enail"
+            name="eid"
+            required
+            class="input5"
+            id="email"
+            onchange="ValidateEmail()"
+          />
+        </div>
+        <div>
+          <label>Username</label>
+          <input type="text" name="uname" required class="input" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="Password" name="password" required class="input" />
+        </div>
+
+        <button class="special btn btn-primary">SUBMIT</button>
+      </form>
+
+      {% for message in messages %}
+      <script>
+        window.alert("{{ message }}");
+      </script>
+      {% endfor %}
+      <script>
+        function ValidateEmail() {
+          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          inputText = document.getElementById("email");
+          if (inputText.value.match(mailformat)) {
+            document.getElementById("email").focus();
+            return true;
+          } else {
+            alert("You have entered an invalid email address!");
+            document.getElementById("email").focus();
+            return false;
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

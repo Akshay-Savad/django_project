@@ -1,0 +1,31 @@
+.Compony h1{
+	font-size: 40px;
+	border-bottom: 6px solid green;
+	margin-top: 1%;
+	padding: 13px 0;
+	width:30%;
+	margin-bottom: 50px;
+}
+
+.Compony{
+	margin-left: 40%;
+}
+form div{
+	margin-top: 20px;
+}
+.input1{
+	margin-left: 40px;
+}
+.input2{
+	margin-left: 90px;
+}
+.input3{
+	margin-left: 90px;
+}
+.input4{
+	margin-left: 75px;
+}
+.special{
+	margin-top: 30px;
+	margin-left: 10%;
+}
